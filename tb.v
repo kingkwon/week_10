@@ -83,10 +83,10 @@ task	memRead;
 	input	[5:0]	tiRA	;
 	input	[1:0]	tiCA	;
 	begin
-		NCE	=1'b1	;
+		NCE	=1'b0	;
 		NWRT	=1'b1	;
 		$display ("%g Memory WR w/ addr(%d/%d)", $time, tiRA, tiCA);
-		@ (negedge CLK) begin
+		@ (posedge CLK) begin
 			RA = tiRA	;
 			CA = tiCA	;
 		end
